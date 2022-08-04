@@ -11,7 +11,7 @@ def RunSQL(SQL):
     conn = mysql.connector.connect(user=os.environ['MySQL_User'], password=os.environ['MySQL_Passwords'], host='127.0.0.1')
     cursor = conn.cursor()
     try:
-        cursor.execute(SQL.replace('${ENV}',os.environ['MYSQL_ENV']))
+        cursor.execute(SQL.replace('${ENV}','DEV'))
         conn.commit()
     except:
         conn.rollback()
